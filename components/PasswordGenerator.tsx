@@ -145,7 +145,7 @@ export default function PasswordGenerator() {
                 className="gen-password-copy"
               >
                 <Image
-                  src="/images/copy.svg"
+                  src="images/copy.svg"
                   width="24"
                   height="24"
                   alt="copy"

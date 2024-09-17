@@ -214,7 +214,7 @@ function Ar2() {
       </button>
       <button onClick={xce} className="calculator-button">
         <Image
-          src="/images/delete.svg"
+          src="images/delete.svg"
           width="32"
           height="32"
           alt="delete"
