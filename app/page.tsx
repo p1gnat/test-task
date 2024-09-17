@@ -44,7 +44,7 @@ export default function Home() {
       <div className="home-border">
         <div className="home-image" onClick={onClick}>
           <Image
-            src="/images/close.svg"
+            src="images/close.svg"
             alt="Нажмите чтобы пропустить форму и продолжить"
             width="24"
             height="24"
