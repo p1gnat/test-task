@@ -77,7 +77,7 @@ export default function PasswordGenerator() {
               type="text"
               value={len}
               onChange={handleLengthChange}
-              placeholder="Enter password length"
+              placeholder="Напиши длину"
               className="gen-length-input"
             />
             {error && (
