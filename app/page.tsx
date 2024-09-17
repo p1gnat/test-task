@@ -21,7 +21,9 @@ export default function Home() {
 
     if (data.name) {
       setName(data.name);
-      localStorage.setItem("name", data.name);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("name", data.name);
+      }
     }
 
     if (submitter) {
