@@ -1,7 +1,7 @@
 "use client";
 import { useStore } from "@/store/useStore";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import "@/styles/globals.scss";
 
 type LayoutProps = {
@@ -10,6 +10,15 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   const { name } = useStore();
+  const [localName, setLocalName] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Client-side only code
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setLocalName(storedName);
+    }
+  }, []);
 
   return (
     <>
@@ -31,17 +40,11 @@ const Layout = ({ children }: LayoutProps) => {
           </ul>
         </nav>
         <section className="header-section" onClick={() => {}}>
-          <h1 className="header-name">
-            {name || localStorage.getItem("name")
-              ? name || localStorage.getItem("name")
-              : ""}
-          </h1>
+          <h1 className="header-name">{name || localName || ""}</h1>
           <p className="circle">
             <span>
-              {name || localStorage.getItem("name")
-                ? (name ? name.toString() : localStorage.getItem("name"))
-                    ?.charAt(0)
-                    .toUpperCase()
+              {name || localName
+                ? (name || localName)?.charAt(0).toUpperCase()
                 : ""}
             </span>
           </p>
